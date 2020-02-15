@@ -10,7 +10,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class EmptyServerStopper extends JavaPlugin implements Listener {
 
-    private final boolean Debug = false;
+    private final boolean Debug = true;
     int m_ShutdownTimeInMinutes = 60;
     boolean m_ShutdownAtStart = false;
 
@@ -24,7 +24,7 @@ public class EmptyServerStopper extends JavaPlugin implements Listener {
 
     @Override
     public void onDisable() {
-        //getLogger().info("EmptyServerStopper : Disabled.");
+        getLogger().info("EmptyServerStopper : Disabled.");
     }
 
     private void LoadConfig() {
@@ -97,13 +97,13 @@ public class EmptyServerStopper extends JavaPlugin implements Listener {
     public void onPlayerExit(PlayerQuitEvent _Event) {
         CheckPlayerNumber();
     }
-    /*
+    
      @EventHandler
      public void onPlayerEnter(PlayerLoginEvent _event) {
      int PlayerNumber = GetPlayerNumber();
      getLogger().info("Nbr Player " + PlayerNumber);
      }
-     */
+     
 
     private void WriteDebugLog(String _Msg) {
         if (Debug) {
